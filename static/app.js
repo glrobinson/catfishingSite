@@ -328,24 +328,29 @@ function findBin(text) {
 
 function wireFind() {
   if (!$("findBtn")) return;
-  $("findBtn").addEventListener("click", () => {
+
+  function runFind() {
     const input = $("findInput").value.trim();
     if (!input) return;
+
     const r = findBin(input);
     $("findResult").textContent = r.bin;
     $("findReason").textContent = r.reason;
-  });
 
-    if (document.getElementById("findNext")) {
-    document.getElementById("findNext").textContent =
+    const nextEl = $("findNext");
+    if (nextEl) {
+      nextEl.textContent =
         r.bin.includes("Recycle") ? "Next: empty + quick rinse, then place loose in recycling."
         : r.bin.includes("Compost") ? "Next: remove stickers/packaging if needed, then compost."
         : r.bin.includes("Special") ? "Next: search for a local drop-off program (batteries/e-waste)."
         : "Next: check local rules. If unsure, don’t toss it in recycling.";
     }
+  }
 
-  $("findInput").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") $("findBtn").click();
+  $("findBtn").addEventListener("click", runFind);
+
+  $("findInput")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") runFind();
   });
 }
 

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Recycle — Home</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Professional font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',
+              400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',
+              800:'#065f46',900:'#064e3b'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2, 6, 23, 0.08)',
+            card: '0 10px 25px rgba(2, 6, 23, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/static/site.css">
+  <script defer src="/static/app.js"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans">
+  <!-- background accents -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[40rem] rounded-full bg-brand-200/60 blur-3xl"></div>
+    <div class="absolute top-40 right-[-10rem] h-72 w-72 rounded-full bg-sky-200/50 blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3">
+        <span class="h-10 w-10 rounded-xl bg-brand-600 text-white grid place-items-center shadow-soft">♻️</span>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight">How to Recycle</div>
+        </div>
+      </a>
+
+      <nav class="hidden sm:flex items-center gap-2 text-sm font-medium">
+        <a href="/index.html" class="navlink" data-nav="home">Home</a>
+        <a href="/find.html" class="navlink" data-nav="find">Find Your Bin</a>
+        <a href="/resources.html" class="navlink" data-nav="resources">Resources</a>
+        <a href="/about.html" class="navlink" data-nav="about">About</a>
+      </nav>
+
+      <div class="sm:hidden">
+        <select
+          data-mobile-nav
+          class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+          onchange="if(this.value) window.location.href=this.options[this.selectedIndex].dataset.href;"
+        >
+          <option value="home" data-href="/index.html">Home</option>
+          <option value="find" data-href="/find.html">Find Your Bin</option>
+          <option value="resources" data-href="/resources.html">Resources</option>
+          <option value="about" data-href="/about.html">About</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+<section class="grid lg:grid-cols-2 gap-10 items-center">
+  <div>
+
+    <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+      Recycling made <span class="text-brand-700">simple</span>.
+    </h1>
+
+    <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">
+      Learn what goes where using a quick sorter game, a “find your bin” helper,
+      and mythbusters that fix the most common mistakes.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a href="/find.html" class="btn btn-primary">Find Your Bin →</a>
+      <a href="#myths" class="btn btn-ghost">See Mythbusters</a>
+    </div>
+
+    <div class="mt-8 grid grid-cols-3 gap-3">
+      <div class="soft p-4">
+        <div class="text-xs text-slate-500">Items Sorted</div>
+        <div class="text-2xl font-extrabold" id="statSorted">0</div>
+      </div>
+      <div class="soft p-4">
+        <div class="text-xs text-slate-500">Correct</div>
+        <div class="text-2xl font-extrabold" id="statCorrect">0</div>
+      </div>
+      <div class="soft p-4">
+        <div class="text-xs text-slate-500">Points</div>
+        <div class="text-2xl font-extrabold" id="statPoints">0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL: SORTER -->
+  <div class="card p-6">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h2 class="text-lg font-bold">Quick Sort</h2>
+        <p class="text-sm text-slate-500">Tap the bin. Learn the rule. Move on.</p>
+      </div>
+      <button id="newItemBtn" class="btn btn-ghost">New item</button>
+    </div>
+
+    <div class="mt-5 soft p-5 flex items-center justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-xs text-slate-500">Current item</div>
+        <div class="text-xl font-extrabold truncate" id="itemName">Aluminum can</div>
+        <div class="text-sm text-slate-600 mt-1" id="itemHint">Empty + quick rinse. Then recycle.</div>
+      </div>
+      <div class="text-5xl shrink-0" id="itemEmoji">🥫</div>
+    </div>
+
+    <div class="mt-4 grid sm:grid-cols-3 gap-3">
+      <button class="bin btn btn-ghost justify-center" data-bin="recycle">Recycle</button>
+      <button class="bin btn btn-ghost justify-center" data-bin="compost">Compost</button>
+      <button class="bin btn btn-ghost justify-center" data-bin="trash">Trash</button>
+    </div>
+
+    <div class="mt-4 text-sm text-slate-600" id="feedback">Choose a bin.</div>
+  </div>
+</section>
+
+<!-- MYTHBUSTERS -->
+<section id="myths" class="mt-12">
+  <div class="flex items-end justify-between gap-4 flex-wrap">
+    <div>
+      <h2 class="text-2xl font-extrabold tracking-tight">Recycling Mythbusters</h2>
+      <p class="mt-1 text-slate-600">A quick carousel of the misconceptions that cause the most problems.</p>
+    </div>
+    <div class="flex gap-2">
+      <button id="mythPrev" class="btn btn-ghost">← Prev</button>
+      <button id="mythNext" class="btn btn-primary">Next →</button>
+    </div>
+  </div>
+
+  <div class="mt-5 card p-7">
+    <div class="flex items-start justify-between gap-8">
+      <div class="min-w-0">
+        <div class="text-xs font-bold text-brand-700" id="mythKicker">MYTH</div>
+        <h3 class="mt-2 text-2xl font-extrabold" id="mythTitle">“Everything plastic is recyclable.”</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed" id="mythBody">
+          Many plastics aren’t accepted curbside. Film plastics (bags/wraps) often jam sorting machines.
+        </p>
+
+        <div class="mt-4 soft p-4">
+          <div class="text-xs text-slate-500">Actionable tip</div>
+          <div class="mt-1 font-semibold text-slate-800" id="mythTip">Tip: check your local accepted list.</div>
+        </div>
+
+        <div class="mt-4 text-sm text-slate-500" id="mythIndex">1 / 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row gap-2 justify-between">
+      <div>© 2026 How to Recycle</div>
+      <div>Reduce, Reuse, Recycle</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const path = window.location.pathname.toLowerCase();
+      const current =
+        path.endsWith("/about.html") ? "about" :
+        path.endsWith("/find.html") ? "find" :
+        path.endsWith("/resources.html") ? "resources" :
+        "home";
+
+      document.querySelectorAll("[data-nav]").forEach(a => {
+        if (a.dataset.nav === current) a.classList.add("navlink-active");
+      });
+
+      const select = document.querySelector("[data-mobile-nav]");
+      if (select) select.value = current;
+    })();
+  </script>
+</body>
+</html>
