@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% set title = "How to Recycle — Resources" %}
+
+{% block content %}
+<section class="max-w-6xl">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Resources</h1>
+  <p class="mt-3 text-slate-600 text-lg">
+    Trusted places to verify rules, find drop-off locations, and understand confusing packaging labels.
+  </p>
+
+  <!-- Resource link cards -->
+  <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+    <!-- EPA Basics -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://www.epa.gov/recycle/recycling-basics-and-benefits">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">US EPA</div>
+          <h2 class="mt-2 text-lg font-extrabold">Recycling Basics & Benefits</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Clear overview of recycling, why it matters, and how to do it the right way.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+
+    <!-- EPA Common Recyclables -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">US EPA</div>
+          <h2 class="mt-2 text-lg font-extrabold">How to Recycle Common Items</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Item-by-item guidance (paper, plastics, batteries, glass, etc.).
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+
+    <!-- Earth911 Search -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://search.earth911.com/">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">Earth911</div>
+          <h2 class="mt-2 text-lg font-extrabold">Find Recycling Near You</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Search by material + ZIP code to find local drop-off options.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+
+    <!-- Call2Recycle -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://www.call2recycle.org/">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">Call2Recycle</div>
+          <h2 class="mt-2 text-lg font-extrabold">Battery Recycling Locations</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Safe battery recycling and drop-off programs (great for “Special Drop-off” items).
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+
+    <!-- How2Recycle -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://how2recycle.info/">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">How2Recycle</div>
+          <h2 class="mt-2 text-lg font-extrabold">Packaging Label Guide</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Learn what “Store Drop-off” and other recycling labels actually mean.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+
+    <!-- Massachusetts -->
+    <a class="card p-6 hover:shadow-soft transition block" target="_blank" rel="noopener"
+       href="https://www.mass.gov/lists/recycling-disposal-options">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold text-brand-700">Mass.gov</div>
+          <h2 class="mt-2 text-lg font-extrabold">Recycling & Disposal Options</h2>
+          <p class="mt-2 text-sm text-slate-600">
+            If you’re in MA, this is a strong hub for recycling and disposal guidance.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 text-sm font-semibold text-brand-700">Open resource →</div>
+    </a>
+  </div>
+
+  <!-- Quick cheat sheet -->
+  <div class="mt-10 card p-7">
+    <h2 class="text-xl font-extrabold tracking-tight">Quick cheat sheet</h2>
+    <p class="mt-2 text-slate-600">
+      These are common defaults, your local program may differ, especially for plastics.
+    </p>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="soft p-6">
+        <div class="font-extrabold text-brand-700">Recycle</div>
+        <ul class="mt-3 text-sm text-slate-600 list-disc pl-5 space-y-2">
+          <li>Metal cans (empty, quick rinse)</li>
+          <li>Clean paper + cardboard</li>
+          <li>Glass jars/bottles (often)</li>
+          <li>Rigid plastics (varies)</li>
+        </ul>
+      </div>
+
+      <div class="soft p-6">
+        <div class="font-extrabold text-brand-700">Compost</div>
+        <ul class="mt-3 text-sm text-slate-600 list-disc pl-5 space-y-2">
+          <li>Food scraps</li>
+          <li>Soiled paper (often)</li>
+          <li>Yard waste (if accepted)</li>
+        </ul>
+      </div>
+
+      <div class="soft p-6">
+        <div class="font-extrabold text-brand-700">Trash</div>
+        <ul class="mt-3 text-sm text-slate-600 list-disc pl-5 space-y-2">
+          <li>Plastic bags/wrap (often)</li>
+          <li>Dirty/greasy paper products</li>
+          <li>Mixed materials you can’t separate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% set title = "How to Recycle — About" %}
+
+{% block content %}
+<section class="max-w-5xl">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">About</h1>
+  <p class="mt-3 text-slate-600 text-lg">
+    This website is a guide to recycling decisions to help reduce confusion, stop contamination, and help you figure out how to recycle correctly.
+  </p>
+
+  <div class="mt-8 grid md:grid-cols-3 gap-5">
+    <div class="card p-6">
+      <h2 class="mt-2 font-bold text-lg">Purpose</h2>
+      <p class="mt-2 text-slate-600">
+        Help people recycle correctly (and avoid wishcycling) with short, clear rules.
+      </p>
+    </div>
+    <div class="card p-6">
+      <h2 class="mt-2 font-bold text-lg">How you learn</h2>
+      <p class="mt-2 text-slate-600">
+        Quick feedback loops: you make a choice, get the reason, and remember it next time.
+      </p>
+    </div>
+    <div class="card p-6">
+      <h2 class="mt-2 font-bold text-lg">What we hope for you to get out of this website</h2>
+      <p class="mt-2 text-slate-600">
+        Understanding how to recycle correctly and fewer wrong items contaminating entire loads.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-8 card p-7">
+    <h2 class="text-xl font-extrabold tracking-tight">Core rules</h2>
+    <div class="mt-5 grid md:grid-cols-2 gap-4">
+      <div class="soft p-6">
+        <div class="font-bold">1) Empty + quick rinse</div>
+        <p class="mt-1 text-slate-600 text-sm">
+          Food residue is one of the biggest causes of contamination.
+        </p>
+      </div>
+      <div class="soft p-6">
+        <div class="font-bold">2) Avoid film plastics curbside</div>
+        <p class="mt-1 text-slate-600 text-sm">
+          Bags and wraps often jam sorting machines unless there’s a special drop-off.
+        </p>
+      </div>
+      <div class="soft p-6">
+        <div class="font-bold">3) When in doubt, keep it out</div>
+        <p class="mt-1 text-slate-600 text-sm">
+          Better to trash one questionable item than contaminate the entire bin.
+        </p>
+      </div>
+      <div class="soft p-6">
+        <div class="font-bold">4) Local rules matter</div>
+        <p class="mt-1 text-slate-600 text-sm">
+          Accepted plastics and glass rules vary — verify using the Resources page.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 flex gap-3">
+      <a href="/find" class="btn btn-primary">Use Find Your Bin →</a>
+      <a href="/resources" class="btn btn-ghost">Open Resources</a>
+    </div>
+  </div>
+
+  <div class="mt-8 grid lg:grid-cols-2 gap-5">
+    <div class="card p-7">
+      <h2 class="text-xl font-extrabold tracking-tight">FAQ</h2>
+      <div class="mt-5 space-y-4">
+        <div class="soft p-5">
+          <div class="font-bold">Is this accurate everywhere?</div>
+          <div class="mt-1 text-slate-600 text-sm">
+            Programs vary by city. This site gives solid defaults, and Resources provides trusted places to verify.
+          </div>
+        </div>
+        <div class="soft p-5">
+          <div class="font-bold">What is wishcycling?</div>
+          <div class="mt-1 text-slate-600 text-sm">
+            Tossing items in recycling “just in case.” It often increases contamination and sorting costs.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-7">
+      <h2 class="text-xl font-extrabold tracking-tight">What’s inside the site</h2>
+      <div class="mt-5 space-y-3 text-slate-600">
+        <div class="soft p-5">
+          <div class="font-bold text-slate-800">Quick Sort</div>
+          <div class="text-sm">Practice decisions with instant feedback.</div>
+        </div>
+        <div class="soft p-5">
+          <div class="font-bold text-slate-800">Mythbusters</div>
+          <div class="text-sm">Swipe common misconceptions and learn the real rule.</div>
+        </div>
+        <div class="soft p-5">
+          <div class="font-bold text-slate-800">Find Your Bin</div>
+          <div class="text-sm">Type an item and get a best-guess bin + reason.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

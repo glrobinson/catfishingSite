@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title or "How to Recycle" }}</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Professional font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:  '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2, 6, 23, 0.08)',
+            card: '0 10px 25px rgba(2, 6, 23, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans">
+  <!-- top background accents -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[40rem] rounded-full bg-brand-200/60 blur-3xl"></div>
+    <div class="absolute top-40 right-[-10rem] h-72 w-72 rounded-full bg-sky-200/50 blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="h-10 w-10 rounded-xl bg-brand-600 text-white grid place-items-center shadow-soft">♻️</span>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight">How to Recycle</div>
+        </div>
+      </a>
+
+      <nav class="hidden sm:flex items-center gap-2 text-sm font-medium">
+        <a href="/"
+            class="navlink {% if page == 'home' %}navlink-active{% endif %}">
+            Home
+        </a>
+
+        <a href="/find"
+            class="navlink {% if page == 'find' %}navlink-active{% endif %}">
+            Find Your Bin
+        </a>
+
+        <a href="/resources"
+            class="navlink {% if page == 'resources' %}navlink-active{% endif %}">
+            Resources
+        </a>
+
+        <a href="/about"
+            class="navlink {% if page == 'about' %}navlink-active{% endif %}">
+            About
+        </a>
+        </nav>
+
+      <!-- Mobile nav (simple) -->
+      <div class="sm:hidden">
+        <select
+            class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+            onchange="if(this.value) window.location.href=this.value;"
+        >
+            <option value="" disabled>Menu</option>
+
+            <option value="/" {% if page == 'home' %}selected{% endif %}>Home</option>
+            <option value="/find" {% if page == 'find' %}selected{% endif %}>Find Your Bin</option>
+            <option value="/resources" {% if page == 'resources' %}selected{% endif %}>Resources</option>
+            <option value="/about" {% if page == 'about' %}selected{% endif %}>About</option>
+        </select>
+        </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row gap-2 justify-between">
+      <div>© 2026 How to Recycle</div>
+      <div>Reduce, Reuse, Recycle</div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

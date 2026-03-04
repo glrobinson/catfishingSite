@@ -1,0 +1,62 @@
+/* Shared small design system */
+.navlink {
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: rgb(51 65 85); /* slate-700 */
+}
+.navlink:hover {
+  background: rgb(241 245 249); /* slate-100 */
+}
+
+.card {
+  background: white;
+  border: 1px solid rgb(226 232 240); /* slate-200 */
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
+}
+
+.soft {
+  background: rgb(248 250 252); /* slate-50 */
+  border: 1px solid rgb(226 232 240);
+  border-radius: 18px;
+}
+
+.btn {
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: rgb(5 150 105); /* brand-600 */
+  color: white;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+.btn-ghost {
+  border: 1px solid rgb(226 232 240);
+  background: white;
+}
+.btn-ghost:hover { background: rgb(241 245 249); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgb(226 232 240);
+  background: white;
+  color: rgb(51 65 85);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.navlink-active {
+  background: rgb(209 250 229);
+  color: rgb(4 120 87);
+  font-weight: 600;
+}
